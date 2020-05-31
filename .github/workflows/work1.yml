@@ -26,9 +26,10 @@ jobs:
       uses: actions/setup-Node@v2-beta
       with:
         node-version: 12
+      
       -name: Install Surge
        run:  npm install --global surge
-       -name: Run surge
-        run: Surge ./ boot4iru.surge.sh --token ${{secrets.SURGE_TOKEN}}
+      -name: Run surge
+       run: Surge ./ boot4iru.surge.sh --token ${{secrets.SURGE_TOKEN}}
      
  
