@@ -1,13 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: website deployment
+name: Deploy website
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
     branches: [ master ]
-  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,7 +20,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-  # Runs a single command using the runners shell
+    # Runs a single command using the runners shell
     - name: Install NodeJS
       uses: actions/setup-node@v2-beta
       with:
@@ -29,6 +28,4 @@ jobs:
     - name: install Surge
       run: npm install -g surge
     - name: Run surge
-      run: Surge ./ boot4iru.surge.sh --token ${{secrets.SURGE_TOKEN}}
-     
- 
+      run: surge ./ boot4iru.surge.sh --token ${{secrets.SURGE_TOKEN}}
